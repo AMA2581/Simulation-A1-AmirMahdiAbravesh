@@ -115,7 +115,6 @@ class SimServer {
     }
     
     func endPrintState() {
-        statCount.QtArea = Array(statCount.QtArea.keys).sorted(by: <)
         statCount.printState()
     }
 }
