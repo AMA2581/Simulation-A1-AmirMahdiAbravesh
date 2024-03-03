@@ -5,6 +5,8 @@
 //  Created by Amir Mahdi Abravesh on 2/27/24.
 //
 
+import Foundation
+
 class SimEventMain {
     var customers = Customers()
     var initRoutine: InitRoutine
@@ -20,15 +22,17 @@ class SimEventMain {
         baker = initRoutine.initializeRoutine()
         clock = initRoutine.initializeClock()
         n = 1
-        for _ in 0 ..< 1000 {
+        for _ in 1 ... 1000 {
             customers.generateCustomer()
         }
+        
+        customers.allCustomers = customers.A.count
 
         while true {
-            print("step \(n)")
-            clock.printState()
+//            print("step \(n)")
+//            clock.printState()
             timingRoutine()
-            printState()
+//            printState()
 //            print(customers.A.first)
             updateClock()
             n += 1
@@ -54,14 +58,14 @@ class SimEventMain {
         if clock.clock == hubble.clockB {
             hubble.removeCustomer()
             if !hubble.systemState.customersQueue.isEmpty {
-                hubble.addCustomerFromQueue()
+                hubble.addCustomerFromQueue(clock: clock.clock)
             }
         }
 
         if clock.clock == baker.clockB {
             baker.removeCustomer()
             if !baker.systemState.customersQueue.isEmpty {
-                baker.addCustomerFromQueue()
+                baker.addCustomerFromQueue(clock: clock.clock)
             }
         }
 
@@ -94,11 +98,22 @@ class SimEventMain {
         baker.setQt(clock: clock.clock)
         hubble.setQueueCount(clock: clock.clock, count: customers.A.count)
         baker.setQueueCount(clock: clock.clock, count: customers.A.count)
+        updateServersClockA()
+        
+        if hubble.systemState.isServerOccupied && baker.systemState.isServerOccupied {
+            hubble.utilUpdate()
+            baker.utilUpdate()
+        } else if hubble.systemState.isServerOccupied && !baker.systemState.isServerOccupied {
+            hubble.utilUpdate()
+        } else if !hubble.systemState.isServerOccupied && baker.systemState.isServerOccupied {
+            baker.utilUpdate()
+        }
     }
 
     func updateClock() {
         
         if hubble.systemState.isServerOccupied {
+            // left side of diagram
             if baker.systemState.isServerOccupied {
                 if customers.isNextCustomerNil {
                     if baker.clockB <= hubble.clockB {
@@ -152,38 +167,6 @@ class SimEventMain {
                 }
             }
         }
-        
-//        if clock.clock != 0 {
-//            if hubble.clockB != 0 {
-//                if hubble.clockB <= baker.clockB {
-//                    if !customers.A.isEmpty {
-//                        if customers.A.first! <= hubble.clockB {
-//                            clock.clock = customers.A.first!
-//                        } else {
-//                            clock.clock = hubble.clockB
-//                        }
-//                    }
-//                } else if baker.clockB != 0 {
-//                    if !customers.A.isEmpty {
-//                        if customers.A.first! <= baker.clockB {
-//                            clock.clock = customers.A.first!
-//                        } else {
-//                            clock.clock = baker.clockB
-//                        }
-//                    } else {
-//                        if hubble.clockB <= customers.A.first! {
-//                            clock.clock = hubble.clockB
-//                        } else {
-//                            clock.clock = customers.A.first!
-//                        }
-//                    }
-//                }
-//            }
-//        } else {
-//            if !customers.A.isEmpty {
-//                clock.clock = customers.A.first!
-//            }
-//        }
     }
     
     private func setClock(_ clock: Int) {
@@ -195,26 +178,66 @@ class SimEventMain {
         let bufferS = customers.S.removeFirst()
         if isOccupied {
             if isHubble {
-                hubble.addCustomerToQueue(A: bufferA, S: bufferS)
+                hubble.addCustomerToQueue(A: bufferA,
+                                          S: bufferS,
+                                          clock: clock.clock)
             } else {
-                baker.addCustomerToQueue(A: bufferA, S: bufferS)
+                baker.addCustomerToQueue(A: bufferA,
+                                         S: bufferS,
+                                         clock: clock.clock)
             }
         } else {
             if isHubble {
                 hubble.updateCustomer(A: bufferA,
-                                      S: bufferS)
+                                      S: bufferS,
+                                      clock: clock.clock)
             } else {
                 baker.updateCustomer(A: bufferA,
-                                     S: bufferS)
+                                     S: bufferS,
+                                     clock: clock.clock)
             }
         }
     }
+    
+    func updateServersClockA(){
+        if !customers.isNextCustomerNil {
+            hubble.clockA = customers.A.first!
+            baker.clockA = customers.A.first!
+        } else {
+            hubble.clockA = 0
+            baker.clockA = 0
+        }
+    }
+    
+    func utilizationPrint() {
+        var hubbleUtil: Double = (Double(hubble.statCount.utilization) / Double(clock.clock)) * 100
+        var bakerUtil: Double = (Double(baker.statCount.utilization) / Double(clock.clock)) * 100
+        
+        hubbleUtil = Double(round(100 * hubbleUtil) / 100)
+        bakerUtil = Double(round(100 * bakerUtil) / 100)
+        
+        let wholeUtil = Double(round(100 * ((hubbleUtil + bakerUtil) / 2)) / 100)
+        
+        print("hubble utilization: \(hubbleUtil)%")
+        print("baker utilization: \(bakerUtil)%")
+        print("whole utilization: \(wholeUtil)%")
+    }
+    
+    func bakerProbPrint() {
+        let bakerProb = Double(round(100 * ((Double(baker.bakerServerProb) / Double(customers.allCustomers) * 100))) / 100)
+        print("baker probablity: \(bakerProb)%")
+    }
 
     func endOfSimulation() {
-        print("Hubble:")
-        hubble.endPrintState()
-        print("Baker:")
-        baker.endPrintState()
+//        print("Hubble:")
+//        hubble.endPrintState()
+//        print("Baker:")
+//        baker.endPrintState()
+        print("----------------Q2-----------------")
+        utilizationPrint()
+        print("----------------Q4-----------------")
+        bakerProbPrint()
+        print("-----------------------------------")
         print("end of simulation")
         exit(0)
     }

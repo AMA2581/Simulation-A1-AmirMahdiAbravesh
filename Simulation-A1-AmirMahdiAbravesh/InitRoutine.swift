@@ -11,7 +11,8 @@ struct InitRoutine {
     var simClock = SimClock(clock: 0)
     var statCount = StatCount(QtArea: [:],
                               BtArea: [:],
-                              queueCount: [:])
+                              queueCount: [:],
+                              utilization: 0)
     var systemState = SystemState(lastEventClock: 0,
                                   isServerOccupied: false,
                                   customersQueue: Queue())

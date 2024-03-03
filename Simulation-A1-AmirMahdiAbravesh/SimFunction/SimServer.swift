@@ -13,13 +13,15 @@ class SimServer {
     var systemState: SystemState
     var isHubble: Bool = false
     var currentCustomer: Customer = Customer()
+    var bakerServerProb = 0
 
     init() {
         clockA = 0
         clockB = 0
         statCount = StatCount(QtArea: [:],
                               BtArea: [:],
-                              queueCount: [:])
+                              queueCount: [:],
+                              utilization: 0)
         systemState = SystemState(lastEventClock: 0,
                                   isServerOccupied: false,
                                   customersQueue: Queue())
@@ -33,25 +35,34 @@ class SimServer {
         self.systemState = systemState
     }
 
-    func addCustomerFromQueue() {
+    func addCustomerFromQueue(clock: Int) {
         let bufferC = systemState.customersQueue.dequeue()!
         currentCustomer.updateCustomer(A: bufferC.A, S: bufferC.S)
         clockB = bufferC.A + bufferC.S
         systemState.isServerOccupied = true
+        systemState.lastEventClock = clock
+        if !isHubble {
+            bakerServerProb += 1
+        }
     }
 
-    func addCustomerToQueue(A: Int, S: Int) {
+    func addCustomerToQueue(A: Int, S: Int, clock: Int) {
         var bufferS = S
         bufferS = BSPreprocessing(bufferS)
         systemState.customersQueue.enqueue(Customer(A: A, S: bufferS))
+        systemState.lastEventClock = clock
     }
 
-    func updateCustomer(A: Int, S: Int) {
+    func updateCustomer(A: Int, S: Int, clock: Int) {
         var bufferS = S
         bufferS = BSPreprocessing(bufferS)
         currentCustomer.updateCustomer(A: A, S: bufferS)
         clockB = A + bufferS
         systemState.isServerOccupied = true
+        systemState.lastEventClock = clock
+        if !isHubble {
+            bakerServerProb += 1
+        }
     }
     
     func removeCustomer() {
@@ -71,6 +82,10 @@ class SimServer {
     
     func setQueueCount(clock: Int, count: Int) {
         statCount.queueCount[clock] = count
+    }
+    
+    func utilUpdate() {
+        statCount.utilization += 1
     }
 
     func BSPreprocessing(_ input: Int) -> Int {

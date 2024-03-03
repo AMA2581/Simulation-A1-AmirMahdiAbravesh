@@ -8,6 +8,7 @@
 class Customers {
     var A: [Int]
     var S: [Int]
+    var allCustomers: Int
     
     var isNextCustomerNil: Bool {
         return A.isEmpty
@@ -16,6 +17,7 @@ class Customers {
     init() {
         A = []
         S = []
+        allCustomers = 0
     }
 
 //    init(A: Int, S: Int) {
