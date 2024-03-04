@@ -17,6 +17,7 @@ class SimEventMain {
     var totalServiceTime: Int
     var totalPeopleInQueuePerClock: [Int]
     var trafficCount: Int
+    var syncServices: [Int]
     var n: Int
 
     init() {
@@ -29,6 +30,7 @@ class SimEventMain {
         totalServiceTime = 0
         totalPeopleInQueuePerClock = [0, 0]
         trafficCount = 0
+        syncServices = [0, 0]
         n = 1
     }
 
@@ -127,6 +129,11 @@ class SimEventMain {
         
         if hubble.systemState.customersQueue.count >= 5 || baker.systemState.customersQueue.count >= 5 {
             trafficCount += 1
+        }
+        
+        if hubble.systemState.isServerOccupied && baker.systemState.isServerOccupied {
+            syncServicesCheck()
+            syncServices[1] += 1
         }
     }
 
@@ -227,6 +234,12 @@ class SimEventMain {
             baker.clockA = 0
         }
     }
+    
+    func syncServicesCheck() {
+        if baker.clockB < hubble.clockB {
+            syncServices[0] += 1
+        }
+    }
 
     func utilizationPrint() {
         var hubbleUtil: Double = (Double(hubble.statCount.utilization) / Double(clock.clock)) * 100
@@ -298,6 +311,11 @@ class SimEventMain {
     func trafficCountPrint() {
         print("number of traffics: \(trafficCount)")
     }
+    
+    func syncServicesPrint() {
+        let output = Double(round(((Double(syncServices[0]) / Double(syncServices[1])) * 100) * 100) / 100)
+        print("baker finishing first: \(output)%")
+    }
 
     func endOfSimulation() {
 //        print("Hubble:")
@@ -319,6 +337,8 @@ class SimEventMain {
         salaryPrint()
         print("----------------Q10----------------")
         trafficCountPrint()
+        print("----------------Q11----------------")
+        syncServicesPrint()
         print("-----------------------------------")
         print("end of simulation")
         exit(0)
