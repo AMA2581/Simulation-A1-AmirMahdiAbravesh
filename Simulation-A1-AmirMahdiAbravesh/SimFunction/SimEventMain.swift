@@ -16,6 +16,7 @@ class SimEventMain {
     var totalWaitTime: Int
     var totalServiceTime: Int
     var totalPeopleInQueuePerClock: [Int]
+    var trafficCount: Int
     var n: Int
 
     init() {
@@ -27,6 +28,7 @@ class SimEventMain {
         totalWaitTime = 0
         totalServiceTime = 0
         totalPeopleInQueuePerClock = [0, 0]
+        trafficCount = 0
         n = 1
     }
 
@@ -122,6 +124,10 @@ class SimEventMain {
         calcTotalServiceTime()
         totalPeopleInQueuePerClock[0] += customers.A.count
         totalPeopleInQueuePerClock[1] += 1
+        
+        if hubble.systemState.customersQueue.count >= 5 || baker.systemState.customersQueue.count >= 5 {
+            trafficCount += 1
+        }
     }
 
     func updateClock() {
@@ -281,7 +287,17 @@ class SimEventMain {
         print("average people in queue: \(totalPeopleInQueuePerClock[0] / totalPeopleInQueuePerClock[1])")
     }
     
+    func salaryPrint() {
+        let hubbleSalary = Double(round(((Double(hubble.customerServed) / Double(customers.allCustomers)) * 100) * 100) / 100)
+        let bakerSalary = Double(round(((Double(baker.customerServed) / Double(customers.allCustomers)) * 100) * 100) / 100)
+        
+        print("hubble salary: \(hubbleSalary)%")
+        print("baker salary: \(bakerSalary)%")
+    }
     
+    func trafficCountPrint() {
+        print("number of traffics: \(trafficCount)")
+    }
 
     func endOfSimulation() {
 //        print("Hubble:")
@@ -299,6 +315,9 @@ class SimEventMain {
         bakerProbPrint()
         print("----------------Q5-----------------")
         customerUtilPrint()
+        print("----------------Q9-----------------")
+        salaryPrint()
+        
         print("-----------------------------------")
         print("end of simulation")
         exit(0)
