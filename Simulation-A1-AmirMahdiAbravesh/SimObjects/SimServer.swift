@@ -14,6 +14,7 @@ class SimServer {
     var isHubble: Bool = false
     var currentCustomer: Customer = Customer()
     var customerServerUtil = 0
+    var customerServed = 0
 
     init() {
         clockA = 0
@@ -66,6 +67,7 @@ class SimServer {
         currentCustomer.A = 0
         currentCustomer.S = 0
         systemState.isServerOccupied = false
+        customerServed += 1
     }
 
     func setBt(clock: Int) {

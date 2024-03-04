@@ -277,6 +277,11 @@ class SimEventMain {
         print("average service time: \(total / customers.allCustomers)")
     }
     
+    func averagePeopleInQueuePerClockPrint() {
+        print("average people in queue: \(totalPeopleInQueuePerClock[0] / totalPeopleInQueuePerClock[1])")
+    }
+    
+    
 
     func endOfSimulation() {
 //        print("Hubble:")
@@ -288,6 +293,8 @@ class SimEventMain {
         averageServiceTimePrint(totalServiceTime: totalServiceTime)
         print("----------------Q2-----------------")
         utilizationPrint()
+        print("----------------Q3-----------------")
+        averagePeopleInQueuePerClockPrint()
         print("----------------Q4-----------------")
         bakerProbPrint()
         print("----------------Q5-----------------")
