@@ -317,7 +317,8 @@ class SimEventMain {
         customerUtilPrint()
         print("----------------Q9-----------------")
         salaryPrint()
-        
+        print("----------------Q10----------------")
+        trafficCountPrint()
         print("-----------------------------------")
         print("end of simulation")
         exit(0)
