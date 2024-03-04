@@ -9,5 +9,5 @@ import Foundation
 
 var simEventMain = SimEventMain()
 
-simEventMain.printState()
+simEventMain.startSimulation()
 

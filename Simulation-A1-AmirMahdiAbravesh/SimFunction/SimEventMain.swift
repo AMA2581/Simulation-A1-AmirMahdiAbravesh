@@ -14,6 +14,8 @@ class SimEventMain {
     var baker: SimServer
     var clock: SimClock
     var totalWaitTime: Int
+    var totalServiceTime: Int
+    var totalPeopleInQueuePerClock: [Int]
     var n: Int
 
     init() {
@@ -23,7 +25,12 @@ class SimEventMain {
         baker = initRoutine.initializeRoutine()
         clock = initRoutine.initializeClock()
         totalWaitTime = 0
+        totalServiceTime = 0
+        totalPeopleInQueuePerClock = [0, 0]
         n = 1
+    }
+
+    func startSimulation() {
         for _ in 1 ... 1000 {
             customers.generateCustomer()
         }
@@ -111,6 +118,10 @@ class SimEventMain {
         } else if !hubble.systemState.isServerOccupied && baker.systemState.isServerOccupied {
             baker.utilUpdate()
         }
+
+        calcTotalServiceTime()
+        totalPeopleInQueuePerClock[0] += customers.A.count
+        totalPeopleInQueuePerClock[1] += 1
     }
 
     func updateClock() {
@@ -248,9 +259,24 @@ class SimEventMain {
         return output
     }
 
+    func calcTotalServiceTime() {
+        if hubble.systemState.isServerOccupied && baker.systemState.isServerOccupied {
+            totalServiceTime += (hubble.currentCustomer.S + baker.currentCustomer.S)
+        } else if hubble.systemState.isServerOccupied && !baker.systemState.isServerOccupied {
+            totalServiceTime += hubble.currentCustomer.S
+        } else if !hubble.systemState.isServerOccupied && baker.systemState.isServerOccupied {
+            totalServiceTime += baker.currentCustomer.S
+        }
+    }
+
     func averageWaitTimePrint(totalWaitTime total: Int) {
         print("average wait time: \(total / customers.allCustomers)")
     }
+
+    func averageServiceTimePrint(totalServiceTime total: Int) {
+        print("average service time: \(total / customers.allCustomers)")
+    }
+    
 
     func endOfSimulation() {
 //        print("Hubble:")
@@ -259,6 +285,7 @@ class SimEventMain {
 //        baker.endPrintState()
         print("----------------Q1-----------------")
         averageWaitTimePrint(totalWaitTime: totalWaitTime)
+        averageServiceTimePrint(totalServiceTime: totalServiceTime)
         print("----------------Q2-----------------")
         utilizationPrint()
         print("----------------Q4-----------------")
