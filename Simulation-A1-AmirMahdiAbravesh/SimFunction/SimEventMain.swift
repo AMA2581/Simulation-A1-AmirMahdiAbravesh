@@ -13,6 +13,7 @@ class SimEventMain {
     var hubble: SimServer
     var baker: SimServer
     var clock: SimClock
+    var totalWaitTime: Int
     var n: Int
 
     init() {
@@ -21,12 +22,14 @@ class SimEventMain {
         hubble.isHubble = true
         baker = initRoutine.initializeRoutine()
         clock = initRoutine.initializeClock()
+        totalWaitTime = 0
         n = 1
         for _ in 1 ... 1000 {
             customers.generateCustomer()
         }
-        
+
         customers.allCustomers = customers.A.count
+        totalWaitTime = calcTotalWaitTime()
 
         while true {
 //            print("step \(n)")
@@ -91,7 +94,7 @@ class SimEventMain {
                 }
             }
         }
-        
+
         hubble.setBt(clock: clock.clock)
         baker.setBt(clock: clock.clock)
         hubble.setQt(clock: clock.clock)
@@ -99,7 +102,7 @@ class SimEventMain {
         hubble.setQueueCount(clock: clock.clock, count: customers.A.count)
         baker.setQueueCount(clock: clock.clock, count: customers.A.count)
         updateServersClockA()
-        
+
         if hubble.systemState.isServerOccupied && baker.systemState.isServerOccupied {
             hubble.utilUpdate()
             baker.utilUpdate()
@@ -111,7 +114,6 @@ class SimEventMain {
     }
 
     func updateClock() {
-        
         if hubble.systemState.isServerOccupied {
             // left side of diagram
             if baker.systemState.isServerOccupied {
@@ -168,7 +170,7 @@ class SimEventMain {
             }
         }
     }
-    
+
     private func setClock(_ clock: Int) {
         self.clock.clock = clock
     }
@@ -198,8 +200,8 @@ class SimEventMain {
             }
         }
     }
-    
-    func updateServersClockA(){
+
+    func updateServersClockA() {
         if !customers.isNextCustomerNil {
             hubble.clockA = customers.A.first!
             baker.clockA = customers.A.first!
@@ -208,32 +210,46 @@ class SimEventMain {
             baker.clockA = 0
         }
     }
-    
+
     func utilizationPrint() {
         var hubbleUtil: Double = (Double(hubble.statCount.utilization) / Double(clock.clock)) * 100
         var bakerUtil: Double = (Double(baker.statCount.utilization) / Double(clock.clock)) * 100
-        
+
         hubbleUtil = Double(round(100 * hubbleUtil) / 100)
         bakerUtil = Double(round(100 * bakerUtil) / 100)
-        
+
         let wholeUtil = Double(round(100 * ((hubbleUtil + bakerUtil) / 2)) / 100)
-        
+
         print("hubble utilization: \(hubbleUtil)%")
         print("baker utilization: \(bakerUtil)%")
         print("whole utilization: \(wholeUtil)%")
     }
-    
+
     func bakerProbPrint() {
-        let bakerProb = Double(round(100 * ((Double(baker.customerServerUtil) / Double(customers.allCustomers) * 100))) / 100)
+        let bakerProb = Double(round(100 * (Double(baker.customerServerUtil) / Double(customers.allCustomers) * 100)) / 100)
         print("baker probablity: \(bakerProb)%")
     }
-    
+
     func customerUtilPrint() {
-        let hubbleCustomerUtil = Double(round(100 * ((Double(hubble.customerServerUtil) / Double(customers.allCustomers) * 100))) / 100)
-        let bakerCustomerUtil = Double(round(100 * ((Double(baker.customerServerUtil) / Double(customers.allCustomers) * 100))) / 100)
-        
+        let hubbleCustomerUtil = Double(round(100 * (Double(hubble.customerServerUtil) / Double(customers.allCustomers) * 100)) / 100)
+        let bakerCustomerUtil = Double(round(100 * (Double(baker.customerServerUtil) / Double(customers.allCustomers) * 100)) / 100)
+
         print("hubble customer rate: \(hubbleCustomerUtil)%")
         print("baker customer rate: \(bakerCustomerUtil)%")
+    }
+
+    func calcTotalWaitTime() -> Int {
+        var output = 0
+        if !customers.isNextCustomerNil {
+            for customer in customers.A {
+                output += customer
+            }
+        }
+        return output
+    }
+
+    func averageWaitTimePrint(totalWaitTime total: Int) {
+        print("average wait time: \(total / customers.allCustomers)")
     }
 
     func endOfSimulation() {
@@ -241,6 +257,8 @@ class SimEventMain {
 //        hubble.endPrintState()
 //        print("Baker:")
 //        baker.endPrintState()
+        print("----------------Q1-----------------")
+        averageWaitTimePrint(totalWaitTime: totalWaitTime)
         print("----------------Q2-----------------")
         utilizationPrint()
         print("----------------Q4-----------------")

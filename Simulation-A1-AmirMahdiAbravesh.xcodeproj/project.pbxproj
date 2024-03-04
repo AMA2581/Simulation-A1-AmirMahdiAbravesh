@@ -56,6 +56,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E1F2F9B2B95A1F90083BA4D /* SimFunction */ = {
+			isa = PBXGroup;
+			children = (
+				2ECA73F72B9227CC00808184 /* InitRoutine.swift */,
+				2ECA73F82B9227CC00808184 /* SimEventMain.swift */,
+			);
+			path = SimFunction;
+			sourceTree = "<group>";
+		};
 		2ECA73E32B9227B200808184 = {
 			isa = PBXGroup;
 			children = (
@@ -75,18 +84,17 @@
 		2ECA73EE2B9227B200808184 /* Simulation-A1-AmirMahdiAbravesh */ = {
 			isa = PBXGroup;
 			children = (
-				2ECA73F92B9227CC00808184 /* SimFunction */,
-				2ECA73F72B9227CC00808184 /* InitRoutine.swift */,
+				2ECA73F92B9227CC00808184 /* SimObjects */,
+				2E1F2F9B2B95A1F90083BA4D /* SimFunction */,
 				2E5E8F452B92E50900EC99B9 /* main.swift */,
-				2ECA73F62B9227CC00808184 /* Queue.swift */,
-				2ECA73F82B9227CC00808184 /* SimEventMain.swift */,
 			);
 			path = "Simulation-A1-AmirMahdiAbravesh";
 			sourceTree = "<group>";
 		};
-		2ECA73F92B9227CC00808184 /* SimFunction */ = {
+		2ECA73F92B9227CC00808184 /* SimObjects */ = {
 			isa = PBXGroup;
 			children = (
+				2ECA73F62B9227CC00808184 /* Queue.swift */,
 				2ECA73FA2B9227CC00808184 /* SimServer.swift */,
 				2ECA73FB2B9227CC00808184 /* Customer.swift */,
 				2ECA73FC2B9227CC00808184 /* SystemState.swift */,
@@ -94,7 +102,7 @@
 				2ECA73FE2B9227CC00808184 /* SimClock.swift */,
 				2ECA73FF2B9227CC00808184 /* Customers.swift */,
 			);
-			path = SimFunction;
+			path = SimObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
