@@ -13,7 +13,7 @@ class SimServer {
     var systemState: SystemState
     var isHubble: Bool = false
     var currentCustomer: Customer = Customer()
-    var bakerServerProb = 0
+    var customerServerUtil = 0
 
     init() {
         clockA = 0
@@ -41,9 +41,7 @@ class SimServer {
         clockB = bufferC.A + bufferC.S
         systemState.isServerOccupied = true
         systemState.lastEventClock = clock
-        if !isHubble {
-            bakerServerProb += 1
-        }
+        customerServerUtil += 1
     }
 
     func addCustomerToQueue(A: Int, S: Int, clock: Int) {
@@ -60,30 +58,28 @@ class SimServer {
         clockB = A + bufferS
         systemState.isServerOccupied = true
         systemState.lastEventClock = clock
-        if !isHubble {
-            bakerServerProb += 1
-        }
+        customerServerUtil += 1
     }
-    
+
     func removeCustomer() {
         clockB = 0
         currentCustomer.A = 0
         currentCustomer.S = 0
         systemState.isServerOccupied = false
     }
-    
+
     func setBt(clock: Int) {
         statCount.BtArea[clock] = systemState.isServerOccupied
     }
-    
+
     func setQt(clock: Int) {
         statCount.QtArea[clock] = systemState.queueCount
     }
-    
+
     func setQueueCount(clock: Int, count: Int) {
         statCount.queueCount[clock] = count
     }
-    
+
     func utilUpdate() {
         statCount.utilization += 1
     }
@@ -128,7 +124,7 @@ class SimServer {
         systemState.printState()
         currentCustomer.printState()
     }
-    
+
     func endPrintState() {
         statCount.printState()
     }

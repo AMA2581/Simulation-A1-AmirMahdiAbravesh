@@ -224,8 +224,16 @@ class SimEventMain {
     }
     
     func bakerProbPrint() {
-        let bakerProb = Double(round(100 * ((Double(baker.bakerServerProb) / Double(customers.allCustomers) * 100))) / 100)
+        let bakerProb = Double(round(100 * ((Double(baker.customerServerUtil) / Double(customers.allCustomers) * 100))) / 100)
         print("baker probablity: \(bakerProb)%")
+    }
+    
+    func customerUtilPrint() {
+        let hubbleCustomerUtil = Double(round(100 * ((Double(hubble.customerServerUtil) / Double(customers.allCustomers) * 100))) / 100)
+        let bakerCustomerUtil = Double(round(100 * ((Double(baker.customerServerUtil) / Double(customers.allCustomers) * 100))) / 100)
+        
+        print("hubble customer rate: \(hubbleCustomerUtil)%")
+        print("baker customer rate: \(bakerCustomerUtil)%")
     }
 
     func endOfSimulation() {
@@ -237,6 +245,8 @@ class SimEventMain {
         utilizationPrint()
         print("----------------Q4-----------------")
         bakerProbPrint()
+        print("----------------Q5-----------------")
+        customerUtilPrint()
         print("-----------------------------------")
         print("end of simulation")
         exit(0)
