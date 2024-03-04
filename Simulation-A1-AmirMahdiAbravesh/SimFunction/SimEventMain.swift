@@ -19,6 +19,7 @@ class SimEventMain {
     var trafficCount: Int
     var syncServices: [Int]
     var n: Int
+    var isSection2: Bool
 
     init() {
         initRoutine = InitRoutine()
@@ -32,6 +33,8 @@ class SimEventMain {
         trafficCount = 0
         syncServices = [0, 0]
         n = 1
+        // change isSection2 in order to get results for second part
+        isSection2 = true
     }
 
     func startSimulation() {
@@ -83,25 +86,41 @@ class SimEventMain {
             }
         }
 
-        if customers.A.isEmpty && customers.S.isEmpty {
-            endOfSimulation()
-        } else {
-            if clock.clock == customers.A.first! {
-                if baker.systemState.isServerOccupied && !hubble.systemState.isServerOccupied {
-                    addCustomer(isHubble: true, isOccupied: false)
+        if !isSection2 {
+            if customers.A.isEmpty && customers.S.isEmpty {
+                endOfSimulation()
+            } else {
+                if clock.clock == customers.A.first! {
+                    if baker.systemState.isServerOccupied && !hubble.systemState.isServerOccupied {
+                        addCustomer(isHubble: true, isOccupied: false)
 
-                } else if hubble.systemState.isServerOccupied && !baker.systemState.isServerOccupied {
-                    addCustomer(isHubble: false, isOccupied: false)
+                    } else if hubble.systemState.isServerOccupied && !baker.systemState.isServerOccupied {
+                        addCustomer(isHubble: false, isOccupied: false)
 
-                } else if !hubble.systemState.isServerOccupied && !baker.systemState.isServerOccupied {
-                    addCustomer(isHubble: true, isOccupied: false)
+                    } else if !hubble.systemState.isServerOccupied && !baker.systemState.isServerOccupied {
+                        addCustomer(isHubble: true, isOccupied: false)
 
-                } else if hubble.systemState.isServerOccupied && baker.systemState.isServerOccupied {
-                    if hubble.clockB <= baker.clockB {
-                        addCustomer(isHubble: true, isOccupied: true)
-                    } else if hubble.clockB > baker.clockB {
-                        addCustomer(isHubble: false, isOccupied: true)
+                    } else if hubble.systemState.isServerOccupied && baker.systemState.isServerOccupied {
+                        if hubble.clockB <= baker.clockB {
+                            addCustomer(isHubble: true, isOccupied: true)
+                        } else if hubble.clockB > baker.clockB {
+                            addCustomer(isHubble: false, isOccupied: true)
+                        }
                     }
+                }
+            }
+        } else {
+            if customers.A.isEmpty && customers.S.isEmpty {
+                endOfSimulation()
+            } else {
+                let randomNumber = Int.random(in: 0 ... 100)
+                switch randomNumber {
+                case 0 ... 30:
+                    addCustomer(isHubble: false, isOccupied: baker.systemState.isServerOccupied)
+                case 31 ... 100:
+                    addCustomer(isHubble: true, isOccupied: hubble.systemState.isServerOccupied)
+                default:
+                    fatalError("random number is invalid!")
                 }
             }
         }
@@ -126,11 +145,11 @@ class SimEventMain {
         calcTotalServiceTime()
         totalPeopleInQueuePerClock[0] += customers.A.count
         totalPeopleInQueuePerClock[1] += 1
-        
+
         if hubble.systemState.customersQueue.count >= 5 || baker.systemState.customersQueue.count >= 5 {
             trafficCount += 1
         }
-        
+
         if hubble.systemState.isServerOccupied && baker.systemState.isServerOccupied {
             syncServicesCheck()
             syncServices[1] += 1
@@ -234,7 +253,7 @@ class SimEventMain {
             baker.clockA = 0
         }
     }
-    
+
     func syncServicesCheck() {
         if baker.clockB < hubble.clockB {
             syncServices[0] += 1
@@ -295,23 +314,23 @@ class SimEventMain {
     func averageServiceTimePrint(totalServiceTime total: Int) {
         print("average service time: \(total / customers.allCustomers)")
     }
-    
+
     func averagePeopleInQueuePerClockPrint() {
         print("average people in queue: \(totalPeopleInQueuePerClock[0] / totalPeopleInQueuePerClock[1])")
     }
-    
+
     func salaryPrint() {
         let hubbleSalary = Double(round(((Double(hubble.customerServed) / Double(customers.allCustomers)) * 100) * 100) / 100)
         let bakerSalary = Double(round(((Double(baker.customerServed) / Double(customers.allCustomers)) * 100) * 100) / 100)
-        
+
         print("hubble salary: \(hubbleSalary)%")
         print("baker salary: \(bakerSalary)%")
     }
-    
+
     func trafficCountPrint() {
         print("number of traffics: \(trafficCount)")
     }
-    
+
     func syncServicesPrint() {
         let output = Double(round(((Double(syncServices[0]) / Double(syncServices[1])) * 100) * 100) / 100)
         print("baker finishing first: \(output)%")
