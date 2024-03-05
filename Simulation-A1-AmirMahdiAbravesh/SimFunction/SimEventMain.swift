@@ -34,7 +34,7 @@ class SimEventMain {
         syncServices = [0, 0]
         n = 1
         // change isSection2 in order to get results for second part
-        isSection2 = true
+        isSection2 = false
     }
 
     func startSimulation() {
@@ -113,14 +113,17 @@ class SimEventMain {
             if customers.A.isEmpty && customers.S.isEmpty {
                 endOfSimulation()
             } else {
-                let randomNumber = Int.random(in: 0 ... 100)
-                switch randomNumber {
-                case 0 ... 30:
-                    addCustomer(isHubble: false, isOccupied: baker.systemState.isServerOccupied)
-                case 31 ... 100:
-                    addCustomer(isHubble: true, isOccupied: hubble.systemState.isServerOccupied)
-                default:
-                    fatalError("random number is invalid!")
+                if clock.clock == customers.A.first! {
+                    let randomNumber = Int.random(in: 0 ... 100)
+//                    print(randomNumber)
+                    switch randomNumber {
+                    case 0 ... 30:
+                        addCustomer(isHubble: false, isOccupied: baker.systemState.isServerOccupied)
+                    case 31 ... 100:
+                        addCustomer(isHubble: true, isOccupied: hubble.systemState.isServerOccupied)
+                    default:
+                        fatalError("random number is invalid!")
+                    }
                 }
             }
         }

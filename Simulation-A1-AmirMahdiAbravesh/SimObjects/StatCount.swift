@@ -19,9 +19,47 @@ class StatCount {
         self.utilization = utilization
     }
 
+    func printPreprocessing(input: [Int: Any]) {
+        var pre = "\(input)"
+        var key: [String] = []
+        var value: [String] = []
+        var buffer = ""
+        for char in pre {
+            if char == "," || char == "]" {
+                if buffer == "true" {
+                    buffer = "1"
+                } else if buffer == "false" {
+                    buffer = "0"
+                }
+                value.append(buffer)
+                buffer = ""
+            } else if char == " " {
+            } else if char == ":" {
+                key.append(buffer)
+                buffer = ""
+            } else {
+                buffer += "\(char)"
+            }
+        }
+        print("key:")
+        for t in key {
+            print(t)
+        }
+        print("value:")
+        for t in value {
+            print(t)
+        }
+    }
+
     func printState() {
-        print("QtArea:\(QtArea)")
-        print("BtArea:\(BtArea)")
-        print("queueCount:\(queueCount)")
+        print("QtArea:")
+        printPreprocessing(input: QtArea)
+        print("BtArea:")
+        printPreprocessing(input: BtArea)
+        print("queueCount:")
+        printPreprocessing(input: queueCount)
+//        print("QtArea:\(QtArea)")
+//        print("BtArea:\(BtArea)")
+//        print("queueCount:\(queueCount)")
     }
 }

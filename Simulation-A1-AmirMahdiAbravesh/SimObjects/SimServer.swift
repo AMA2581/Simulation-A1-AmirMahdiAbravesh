@@ -75,7 +75,7 @@ class SimServer {
     }
 
     func setQt(clock: Int) {
-        statCount.QtArea[clock] = systemState.queueCount
+        statCount.QtArea[clock] = systemState.customersQueue.count
     }
 
     func setQueueCount(clock: Int, count: Int) {
