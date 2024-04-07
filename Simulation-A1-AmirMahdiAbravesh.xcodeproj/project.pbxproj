@@ -34,6 +34,8 @@
 		2EB6FA412BC264BB00BAB88E /* SimResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA3F2BC264BB00BAB88E /* SimResultsView.swift */; };
 		2EB6FA432BC2651300BAB88E /* SimSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA422BC2651300BAB88E /* SimSettingsView.swift */; };
 		2EB6FA442BC2651300BAB88E /* SimSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA422BC2651300BAB88E /* SimSettingsView.swift */; };
+		2EB6FA472BC28DB500BAB88E /* resultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA462BC28DB500BAB88E /* resultCard.swift */; };
+		2EB6FA482BC28DB500BAB88E /* resultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA462BC28DB500BAB88E /* resultCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +69,7 @@
 		2EB6FA2C2BC261CF00BAB88E /* Customers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
 		2EB6FA3F2BC264BB00BAB88E /* SimResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimResultsView.swift; sourceTree = "<group>"; };
 		2EB6FA422BC2651300BAB88E /* SimSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimSettingsView.swift; sourceTree = "<group>"; };
+		2EB6FA462BC28DB500BAB88E /* resultCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultCard.swift; sourceTree = "<group>"; };
 		2ECA73EC2B9227B200808184 /* Simulation-A1-AmirMahdiAbravesh */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Simulation-A1-AmirMahdiAbravesh"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -134,11 +137,20 @@
 		2EB6FA452BC2651C00BAB88E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2EB6FA492BC28DBD00BAB88E /* SubView */,
 				2EB6F9E62BC2601000BAB88E /* ContentView.swift */,
-				2EB6FA422BC2651300BAB88E /* SimSettingsView.swift */,
 				2EB6FA3F2BC264BB00BAB88E /* SimResultsView.swift */,
+				2EB6FA422BC2651300BAB88E /* SimSettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2EB6FA492BC28DBD00BAB88E /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				2EB6FA462BC28DB500BAB88E /* resultCard.swift */,
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 		2ECA73E32B9227B200808184 = {
@@ -276,6 +288,7 @@
 				2EB6FA2E2BC261CF00BAB88E /* InitRoutine.swift in Sources */,
 				2EB6FA412BC264BB00BAB88E /* SimResultsView.swift in Sources */,
 				2EB6FA3A2BC261CF00BAB88E /* Queue.swift in Sources */,
+				2EB6FA482BC28DB500BAB88E /* resultCard.swift in Sources */,
 				2EB6FA382BC261CF00BAB88E /* StatCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EB6FA472BC28DB500BAB88E /* resultCard.swift in Sources */,
 				2EB6FA352BC261CF00BAB88E /* SystemState.swift in Sources */,
 				2EB6FA432BC2651300BAB88E /* SimSettingsView.swift in Sources */,
 				2EB6FA2D2BC261CF00BAB88E /* InitRoutine.swift in Sources */,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SimSettingsView: View {
     var body: some View {
-        Text("simulation settings")
+        Text("Simulation Settings")
     }
 }
 
