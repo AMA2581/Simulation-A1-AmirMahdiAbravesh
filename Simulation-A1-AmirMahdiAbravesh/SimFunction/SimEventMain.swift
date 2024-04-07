@@ -41,7 +41,7 @@ class SimEventMain {
 
     func startSimulation() {
         isSimulationStarted = true
-        
+
         for _ in 1 ... 1000 {
             customers.generateCustomer()
         }
@@ -63,6 +63,20 @@ class SimEventMain {
             }
             n += 1
         }
+    }
+
+    func resetSimulation() {
+        initRoutine = InitRoutine()
+        hubble = initRoutine.initializeRoutine()
+        hubble.isHubble = true
+        baker = initRoutine.initializeRoutine()
+        clock = initRoutine.initializeClock()
+        totalWaitTime = 0
+        totalServiceTime = 0
+        totalPeopleInQueuePerClock = [0, 0]
+        trafficCount = 0
+        syncServices = [0, 0]
+        n = 1
     }
 
     func printState() {
@@ -394,13 +408,13 @@ class SimEventMain {
         print("hubble salary: \(hubbleSalary)%")
         print("baker salary: \(bakerSalary)%")
     }
-    
+
     /// Hubble Salary Print
     func salaryPrintH() -> String {
         let hubbleSalary = Double(round(((Double(hubble.customerServed) / Double(customers.allCustomers)) * 100) * 100) / 100)
         return "\(hubbleSalary)%"
     }
-    
+
     /// Baker Salary Print
     func salaryPrintB() -> String {
         let bakerSalary = Double(round(((Double(baker.customerServed) / Double(customers.allCustomers)) * 100) * 100) / 100)
@@ -425,7 +439,7 @@ class SimEventMain {
 //        hubble.endPrintState()
 //        print("Baker:")
 //        baker.endPrintState()
-        
+
 //        print("----------------Q1-----------------")
 //        averageWaitTimePrint(totalWaitTime: totalWaitTime)
 //        averageServiceTimePrint(totalServiceTime: totalServiceTime)
@@ -446,7 +460,7 @@ class SimEventMain {
 //        print("-----------------------------------")
 //        print("end of simulation")
 //        exit(0)
-        
+
         isSimulationStarted = false
     }
 }

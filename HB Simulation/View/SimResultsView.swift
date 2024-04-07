@@ -15,6 +15,9 @@ struct SimResultsView: View {
             if viewModel.isResultsReady {
                 NavigationStack {
                     ScrollView {
+                        resultCard(title: "Section",
+                                   descriptions: ["Section"],
+                                   results: [HB_SimulationApp.simEventMain.isSection2 ? "2" : "1"])
                         resultCard(title: "Q1",
                                    descriptions: ["average wait time",
                                                   "average service time"],

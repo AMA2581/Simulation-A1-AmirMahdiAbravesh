@@ -20,6 +20,7 @@ class SimResultsModelView: ObservableObject {
     func resetSimulation() {
         isSimulationStarted = false
         isResultsReady = false
+        HB_SimulationApp.simEventMain.resetSimulation()
     }
     
     func endOfSimulation () {
