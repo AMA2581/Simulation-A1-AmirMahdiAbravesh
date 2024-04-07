@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct HB_SimulationApp: App {
-    var simEventMain = SimEventMain()
+    static var simEventMain = SimEventMain()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

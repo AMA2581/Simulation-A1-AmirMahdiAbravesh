@@ -126,8 +126,21 @@ class SimServer {
         systemState.printState()
         currentCustomer.printState()
     }
-
-    func endPrintState() {
-        statCount.printState()
+    
+    /// For printing clock A
+    func printCA() -> String {
+        return "\(clockA)"
     }
+    
+    /// For printing clock B
+    func printCB() -> String {
+        return "\(clockB)"
+    }
+    
+    // TODO: systemState and currentCustomer prints are happening inside their object
+
+    // this is not being called so I commented it:
+//    func endPrintState() {
+//        statCount.printState()
+//    }
 }

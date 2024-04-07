@@ -20,6 +20,7 @@ class SimEventMain {
     var syncServices: [Int]
     var n: Int
     var isSection2: Bool
+    var isSimulationStarted: Bool
 
     init() {
         initRoutine = InitRoutine()
@@ -35,9 +36,12 @@ class SimEventMain {
         n = 1
         // change isSection2 in order to get results for second part
         isSection2 = true
+        isSimulationStarted = false
     }
 
     func startSimulation() {
+        isSimulationStarted = true
+        
         for _ in 1 ... 1000 {
             customers.generateCustomer()
         }
@@ -51,7 +55,11 @@ class SimEventMain {
             timingRoutine()
             printState()
 //            print(customers.A.first)
-            updateClock()
+            if isSimulationStarted {
+                updateClock()
+            } else {
+                break
+            }
             n += 1
         }
     }
@@ -66,6 +74,8 @@ class SimEventMain {
 //        print("Customers:")
 //        customers.printState()
     }
+
+    // MARK: Timing Routine
 
     func timingRoutine() {
 //        hubble.systemState.isServerOccupied = true
@@ -158,6 +168,8 @@ class SimEventMain {
             syncServices[1] += 1
         }
     }
+
+    // MARK: Clock Logic
 
     func updateClock() {
         if hubble.systemState.isServerOccupied {
@@ -263,6 +275,9 @@ class SimEventMain {
         }
     }
 
+    // MARK: Print Functions
+
+    // Q2
     func utilizationPrint() {
         var hubbleUtil: Double = (Double(hubble.statCount.utilization) / Double(clock.clock)) * 100
         var bakerUtil: Double = (Double(baker.statCount.utilization) / Double(clock.clock)) * 100
@@ -270,18 +285,49 @@ class SimEventMain {
         hubbleUtil = Double(round(100 * hubbleUtil) / 100)
         bakerUtil = Double(round(100 * bakerUtil) / 100)
 
-        let wholeUtil = Double(round(100 * ((hubbleUtil + bakerUtil) / 2)) / 100)
+        let totalUtil = Double(round(100 * ((hubbleUtil + bakerUtil) / 2)) / 100)
 
         print("hubble utilization: \(hubbleUtil)%")
         print("baker utilization: \(bakerUtil)%")
-        print("whole utilization: \(wholeUtil)%")
+        print("total utilization: \(totalUtil)%")
     }
 
-    func bakerProbPrint() {
+    /// Hubble Utilization
+    func utilizationPrintH() -> String {
+        var hubbleUtil: Double = (Double(hubble.statCount.utilization) / Double(clock.clock)) * 100
+        hubbleUtil = Double(round(100 * hubbleUtil) / 100)
+
+        return "\(hubbleUtil)%"
+    }
+
+    /// Baker Utilization
+    func utilizationPrintB() -> String {
+        var bakerUtil: Double = (Double(baker.statCount.utilization) / Double(clock.clock)) * 100
+        bakerUtil = Double(round(100 * bakerUtil) / 100)
+
+        return "\(bakerUtil)%"
+    }
+
+    /// Total Utilization
+    func utilizationPrintTotal() -> String {
+        var hubbleUtil: Double = (Double(hubble.statCount.utilization) / Double(clock.clock)) * 100
+        var bakerUtil: Double = (Double(baker.statCount.utilization) / Double(clock.clock)) * 100
+
+        hubbleUtil = Double(round(100 * hubbleUtil) / 100)
+        bakerUtil = Double(round(100 * bakerUtil) / 100)
+        let totalUtil = Double(round(100 * ((hubbleUtil + bakerUtil) / 2)) / 100)
+
+        return "\(totalUtil)%"
+    }
+
+    // Q4
+    func bakerProbPrint() -> String {
         let bakerProb = Double(round(100 * (Double(baker.customerServerUtil) / Double(customers.allCustomers) * 100)) / 100)
         print("baker probablity: \(bakerProb)%")
+        return "\(bakerProb)%"
     }
 
+    // Q5
     func customerUtilPrint() {
         let hubbleCustomerUtil = Double(round(100 * (Double(hubble.customerServerUtil) / Double(customers.allCustomers) * 100)) / 100)
         let bakerCustomerUtil = Double(round(100 * (Double(baker.customerServerUtil) / Double(customers.allCustomers) * 100)) / 100)
@@ -290,6 +336,19 @@ class SimEventMain {
         print("baker customer rate: \(bakerCustomerUtil)%")
     }
 
+    /// Hubble utilization print
+    func customerUtilPrintH() -> String {
+        let hubbleCustomerUtil = Double(round(100 * (Double(hubble.customerServerUtil) / Double(customers.allCustomers) * 100)) / 100)
+        return "\(hubbleCustomerUtil)%"
+    }
+
+    /// Baker utilization print
+    func customerUtilPrintB() -> String {
+        let bakerCustomerUtil = Double(round(100 * (Double(baker.customerServerUtil) / Double(customers.allCustomers) * 100)) / 100)
+        return "\(bakerCustomerUtil)%"
+    }
+
+    // Q1
     func calcTotalWaitTime() -> Int {
         var output = 0
         if !customers.isNextCustomerNil {
@@ -310,18 +369,23 @@ class SimEventMain {
         }
     }
 
-    func averageWaitTimePrint(totalWaitTime total: Int) {
+    func averageWaitTimePrint(totalWaitTime total: Int) -> String {
         print("average wait time: \(total / customers.allCustomers)")
+        return "\(total / customers.allCustomers)"
     }
 
-    func averageServiceTimePrint(totalServiceTime total: Int) {
+    func averageServiceTimePrint(totalServiceTime total: Int) -> String {
         print("average service time: \(total / customers.allCustomers)")
+        return "\(total / customers.allCustomers)"
     }
 
-    func averagePeopleInQueuePerClockPrint() {
+    // Q3
+    func averagePeopleInQueuePerClockPrint() -> String {
         print("average people in queue: \(totalPeopleInQueuePerClock[0] / totalPeopleInQueuePerClock[1])")
+        return "\(totalPeopleInQueuePerClock[0] / totalPeopleInQueuePerClock[1])"
     }
 
+    // Q9
     func salaryPrint() {
         let hubbleSalary = Double(round(((Double(hubble.customerServed) / Double(customers.allCustomers)) * 100) * 100) / 100)
         let bakerSalary = Double(round(((Double(baker.customerServed) / Double(customers.allCustomers)) * 100) * 100) / 100)
@@ -329,14 +393,30 @@ class SimEventMain {
         print("hubble salary: \(hubbleSalary)%")
         print("baker salary: \(bakerSalary)%")
     }
-
-    func trafficCountPrint() {
-        print("number of traffics: \(trafficCount)")
+    
+    /// Hubble Salary Print
+    func salaryPrintH() -> String {
+        let hubbleSalary = Double(round(((Double(hubble.customerServed) / Double(customers.allCustomers)) * 100) * 100) / 100)
+        return "\(hubbleSalary)%"
+    }
+    
+    /// Baker Salary Print
+    func salaryPrintB() -> String {
+        let bakerSalary = Double(round(((Double(baker.customerServed) / Double(customers.allCustomers)) * 100) * 100) / 100)
+        return "\(bakerSalary)%"
     }
 
-    func syncServicesPrint() {
+    // Q10
+    func trafficCountPrint() -> String {
+        print("number of traffics: \(trafficCount)")
+        return "\(trafficCount)"
+    }
+
+    // Q11
+    func syncServicesPrint() -> String {
         let output = Double(round(((Double(syncServices[0]) / Double(syncServices[1])) * 100) * 100) / 100)
         print("baker finishing first: \(output)%")
+        return "\(output)"
     }
 
     func endOfSimulation() {
@@ -344,25 +424,28 @@ class SimEventMain {
 //        hubble.endPrintState()
 //        print("Baker:")
 //        baker.endPrintState()
-        print("----------------Q1-----------------")
-        averageWaitTimePrint(totalWaitTime: totalWaitTime)
-        averageServiceTimePrint(totalServiceTime: totalServiceTime)
-        print("----------------Q2-----------------")
-        utilizationPrint()
-        print("----------------Q3-----------------")
-        averagePeopleInQueuePerClockPrint()
-        print("----------------Q4-----------------")
-        bakerProbPrint()
-        print("----------------Q5-----------------")
-        customerUtilPrint()
-        print("----------------Q9-----------------")
-        salaryPrint()
-        print("----------------Q10----------------")
-        trafficCountPrint()
-        print("----------------Q11----------------")
-        syncServicesPrint()
-        print("-----------------------------------")
-        print("end of simulation")
-        exit(0)
+        
+//        print("----------------Q1-----------------")
+//        averageWaitTimePrint(totalWaitTime: totalWaitTime)
+//        averageServiceTimePrint(totalServiceTime: totalServiceTime)
+//        print("----------------Q2-----------------")
+//        utilizationPrint()
+//        print("----------------Q3-----------------")
+//        averagePeopleInQueuePerClockPrint()
+//        print("----------------Q4-----------------")
+//        bakerProbPrint()
+//        print("----------------Q5-----------------")
+//        customerUtilPrint()
+//        print("----------------Q9-----------------")
+//        salaryPrint()
+//        print("----------------Q10----------------")
+//        trafficCountPrint()
+//        print("----------------Q11----------------")
+//        syncServicesPrint()
+//        print("-----------------------------------")
+//        print("end of simulation")
+//        exit(0)
+        
+        isSimulationStarted = false
     }
 }

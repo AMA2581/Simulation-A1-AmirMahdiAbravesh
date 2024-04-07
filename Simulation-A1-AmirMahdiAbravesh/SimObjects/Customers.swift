@@ -59,4 +59,12 @@ class Customers {
         print("S:\(S)")
 //        print(A.count)
     }
+    
+    func printStateA() -> String {
+        return "\(A)"
+    }
+    
+    func printStateS() -> String {
+        return "\(S)"
+    }
 }

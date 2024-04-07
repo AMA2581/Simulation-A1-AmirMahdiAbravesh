@@ -16,7 +16,8 @@ class SimClock {
         self.clock = clock
     }
     
-    func printState() {
-        print("clock:\(clock)")
+    func printState() -> String {
+        print("clock: \(clock)")
+        return "\(clock)"
     }
 }

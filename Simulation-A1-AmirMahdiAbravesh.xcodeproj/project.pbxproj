@@ -30,6 +30,10 @@
 		2EB6FA3C2BC261CF00BAB88E /* SimClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA2B2BC261CF00BAB88E /* SimClock.swift */; };
 		2EB6FA3D2BC261CF00BAB88E /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA2C2BC261CF00BAB88E /* Customers.swift */; };
 		2EB6FA3E2BC261CF00BAB88E /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA2C2BC261CF00BAB88E /* Customers.swift */; };
+		2EB6FA402BC264BB00BAB88E /* SimResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA3F2BC264BB00BAB88E /* SimResultsView.swift */; };
+		2EB6FA412BC264BB00BAB88E /* SimResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA3F2BC264BB00BAB88E /* SimResultsView.swift */; };
+		2EB6FA432BC2651300BAB88E /* SimSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA422BC2651300BAB88E /* SimSettingsView.swift */; };
+		2EB6FA442BC2651300BAB88E /* SimSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA422BC2651300BAB88E /* SimSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +65,8 @@
 		2EB6FA2A2BC261CF00BAB88E /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		2EB6FA2B2BC261CF00BAB88E /* SimClock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimClock.swift; sourceTree = "<group>"; };
 		2EB6FA2C2BC261CF00BAB88E /* Customers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
+		2EB6FA3F2BC264BB00BAB88E /* SimResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimResultsView.swift; sourceTree = "<group>"; };
+		2EB6FA422BC2651300BAB88E /* SimSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimSettingsView.swift; sourceTree = "<group>"; };
 		2ECA73EC2B9227B200808184 /* Simulation-A1-AmirMahdiAbravesh */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Simulation-A1-AmirMahdiAbravesh"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				2EB6F9E42BC2601000BAB88E /* HB_SimulationApp.swift */,
-				2EB6F9E62BC2601000BAB88E /* ContentView.swift */,
+				2EB6FA452BC2651C00BAB88E /* View */,
 				2EB6F9E82BC2601300BAB88E /* Assets.xcassets */,
 				2EB6F9EA2BC2601300BAB88E /* HB_Simulation.entitlements */,
 				2EB6F9EB2BC2601300BAB88E /* Preview Content */,
@@ -123,6 +129,16 @@
 				2EB6FA2C2BC261CF00BAB88E /* Customers.swift */,
 			);
 			path = SimObjects;
+			sourceTree = "<group>";
+		};
+		2EB6FA452BC2651C00BAB88E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2EB6F9E62BC2601000BAB88E /* ContentView.swift */,
+				2EB6FA422BC2651300BAB88E /* SimSettingsView.swift */,
+				2EB6FA3F2BC264BB00BAB88E /* SimResultsView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2ECA73E32B9227B200808184 = {
@@ -256,7 +272,9 @@
 				2EB6FA342BC261CF00BAB88E /* Customer.swift in Sources */,
 				2EB6F9E52BC2601000BAB88E /* HB_SimulationApp.swift in Sources */,
 				2EB6FA3E2BC261CF00BAB88E /* Customers.swift in Sources */,
+				2EB6FA442BC2651300BAB88E /* SimSettingsView.swift in Sources */,
 				2EB6FA2E2BC261CF00BAB88E /* InitRoutine.swift in Sources */,
+				2EB6FA412BC264BB00BAB88E /* SimResultsView.swift in Sources */,
 				2EB6FA3A2BC261CF00BAB88E /* Queue.swift in Sources */,
 				2EB6FA382BC261CF00BAB88E /* StatCount.swift in Sources */,
 			);
@@ -267,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EB6FA352BC261CF00BAB88E /* SystemState.swift in Sources */,
+				2EB6FA432BC2651300BAB88E /* SimSettingsView.swift in Sources */,
 				2EB6FA2D2BC261CF00BAB88E /* InitRoutine.swift in Sources */,
 				2EB6FA332BC261CF00BAB88E /* Customer.swift in Sources */,
 				2EB6FA3D2BC261CF00BAB88E /* Customers.swift in Sources */,
@@ -275,6 +294,7 @@
 				2EB6FA312BC261CF00BAB88E /* SimServer.swift in Sources */,
 				2EB6FA2F2BC261CF00BAB88E /* SimEventMain.swift in Sources */,
 				2EB6FA3B2BC261CF00BAB88E /* SimClock.swift in Sources */,
+				2EB6FA402BC264BB00BAB88E /* SimResultsView.swift in Sources */,
 				2EB6FA372BC261CF00BAB88E /* StatCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +308,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HB Simulation/HB_Simulation.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HB Simulation/Preview Content\"";
@@ -326,6 +347,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "HB Simulation/HB_Simulation.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HB Simulation/Preview Content\"";

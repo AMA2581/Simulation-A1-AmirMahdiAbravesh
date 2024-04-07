@@ -29,6 +29,14 @@ class Customer {
         print("S:\(S)")
     }
     
+    func printA() -> String {
+        return "\(A)"
+    }
+    
+    func printS() -> String {
+        return "\(S)"
+    }
+    
     func toString() -> String {
         return "\(A)|\(S)"
     }
