@@ -35,7 +35,7 @@ class SimEventMain {
         syncServices = [0, 0]
         n = 1
         // change isSection2 in order to get results for second part
-        isSection2 = true
+        isSection2 = false
         isSimulationStarted = false
     }
 
@@ -48,12 +48,13 @@ class SimEventMain {
 
         customers.allCustomers = customers.A.count
         totalWaitTime = calcTotalWaitTime()
+        print(isSection2)
 
         while true {
-            print("step \(n)")
-            clock.printState()
+//            print("step \(n)")
+//            clock.printState()
             timingRoutine()
-            printState()
+//            printState()
 //            print(customers.A.first)
             if isSimulationStarted {
                 updateClock()
@@ -369,14 +370,14 @@ class SimEventMain {
         }
     }
 
-    func averageWaitTimePrint(totalWaitTime total: Int) -> String {
-        print("average wait time: \(total / customers.allCustomers)")
-        return "\(total / customers.allCustomers)"
+    func averageWaitTimePrint() -> String {
+        print("average wait time: \(totalWaitTime / customers.allCustomers)")
+        return "\(totalWaitTime / customers.allCustomers)"
     }
 
-    func averageServiceTimePrint(totalServiceTime total: Int) -> String {
-        print("average service time: \(total / customers.allCustomers)")
-        return "\(total / customers.allCustomers)"
+    func averageServiceTimePrint() -> String {
+        print("average service time: \(totalServiceTime / customers.allCustomers)")
+        return "\(totalServiceTime / customers.allCustomers)"
     }
 
     // Q3
