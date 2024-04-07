@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SimSettingsView: View {
     @StateObject var viewModel = SimSettingsModelView()
+    @FocusState var NCFocusState: Bool
     
     var body: some View {
         NavigationStack {
@@ -16,6 +17,16 @@ struct SimSettingsView: View {
                 Section {
                     Toggle(isOn: $viewModel.isSection2) {
                         Text("Section 2")
+                    }
+                    HStack() {
+                        TextField("Number of Customers", text: $viewModel.initCustomerCountString)
+                            .keyboardType(.numberPad)
+                            .focused($NCFocusState)
+                        Button {
+                            NCFocusState = false
+                        } label: {
+                            Text("Submit")
+                        }
                     }
                 }
             }

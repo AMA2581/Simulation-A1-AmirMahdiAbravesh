@@ -19,6 +19,7 @@ class SimEventMain {
     var trafficCount: Int
     var syncServices: [Int]
     var n: Int
+    var initCustomerCount: Int
     var isSection2: Bool
     var isSimulationStarted: Bool
 
@@ -35,6 +36,7 @@ class SimEventMain {
         syncServices = [0, 0]
         n = 1
         // change isSection2 in order to get results for second part
+        initCustomerCount = 1000
         isSection2 = false
         isSimulationStarted = false
     }
@@ -42,7 +44,7 @@ class SimEventMain {
     func startSimulation() {
         isSimulationStarted = true
 
-        for _ in 1 ... 1000 {
+        for _ in 1 ... initCustomerCount {
             customers.generateCustomer()
         }
 
