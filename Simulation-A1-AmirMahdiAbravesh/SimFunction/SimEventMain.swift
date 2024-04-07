@@ -34,7 +34,7 @@ class SimEventMain {
         syncServices = [0, 0]
         n = 1
         // change isSection2 in order to get results for second part
-        isSection2 = false
+        isSection2 = true
     }
 
     func startSimulation() {
@@ -46,10 +46,10 @@ class SimEventMain {
         totalWaitTime = calcTotalWaitTime()
 
         while true {
-//            print("step \(n)")
-//            clock.printState()
+            print("step \(n)")
+            clock.printState()
             timingRoutine()
-//            printState()
+            printState()
 //            print(customers.A.first)
             updateClock()
             n += 1

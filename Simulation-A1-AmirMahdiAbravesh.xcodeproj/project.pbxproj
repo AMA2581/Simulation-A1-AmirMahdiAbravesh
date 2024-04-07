@@ -8,15 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		2E5E8F462B92E50900EC99B9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E8F452B92E50900EC99B9 /* main.swift */; };
-		2ECA74012B9227CC00808184 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA73F62B9227CC00808184 /* Queue.swift */; };
-		2ECA74022B9227CC00808184 /* InitRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA73F72B9227CC00808184 /* InitRoutine.swift */; };
-		2ECA74032B9227CC00808184 /* SimEventMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA73F82B9227CC00808184 /* SimEventMain.swift */; };
-		2ECA74042B9227CC00808184 /* SimServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA73FA2B9227CC00808184 /* SimServer.swift */; };
-		2ECA74052B9227CC00808184 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA73FB2B9227CC00808184 /* Customer.swift */; };
-		2ECA74062B9227CC00808184 /* SystemState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA73FC2B9227CC00808184 /* SystemState.swift */; };
-		2ECA74072B9227CC00808184 /* StatCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA73FD2B9227CC00808184 /* StatCount.swift */; };
-		2ECA74082B9227CC00808184 /* SimClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA73FE2B9227CC00808184 /* SimClock.swift */; };
-		2ECA74092B9227CC00808184 /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECA73FF2B9227CC00808184 /* Customers.swift */; };
+		2EB6F9E52BC2601000BAB88E /* HB_SimulationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6F9E42BC2601000BAB88E /* HB_SimulationApp.swift */; };
+		2EB6F9E72BC2601000BAB88E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6F9E62BC2601000BAB88E /* ContentView.swift */; };
+		2EB6F9E92BC2601300BAB88E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EB6F9E82BC2601300BAB88E /* Assets.xcassets */; };
+		2EB6F9ED2BC2601300BAB88E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EB6F9EC2BC2601300BAB88E /* Preview Assets.xcassets */; };
+		2EB6FA2D2BC261CF00BAB88E /* InitRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA232BC261CF00BAB88E /* InitRoutine.swift */; };
+		2EB6FA2E2BC261CF00BAB88E /* InitRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA232BC261CF00BAB88E /* InitRoutine.swift */; };
+		2EB6FA2F2BC261CF00BAB88E /* SimEventMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA242BC261CF00BAB88E /* SimEventMain.swift */; };
+		2EB6FA302BC261CF00BAB88E /* SimEventMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA242BC261CF00BAB88E /* SimEventMain.swift */; };
+		2EB6FA312BC261CF00BAB88E /* SimServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA262BC261CF00BAB88E /* SimServer.swift */; };
+		2EB6FA322BC261CF00BAB88E /* SimServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA262BC261CF00BAB88E /* SimServer.swift */; };
+		2EB6FA332BC261CF00BAB88E /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA272BC261CF00BAB88E /* Customer.swift */; };
+		2EB6FA342BC261CF00BAB88E /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA272BC261CF00BAB88E /* Customer.swift */; };
+		2EB6FA352BC261CF00BAB88E /* SystemState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA282BC261CF00BAB88E /* SystemState.swift */; };
+		2EB6FA362BC261CF00BAB88E /* SystemState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA282BC261CF00BAB88E /* SystemState.swift */; };
+		2EB6FA372BC261CF00BAB88E /* StatCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA292BC261CF00BAB88E /* StatCount.swift */; };
+		2EB6FA382BC261CF00BAB88E /* StatCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA292BC261CF00BAB88E /* StatCount.swift */; };
+		2EB6FA392BC261CF00BAB88E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA2A2BC261CF00BAB88E /* Queue.swift */; };
+		2EB6FA3A2BC261CF00BAB88E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA2A2BC261CF00BAB88E /* Queue.swift */; };
+		2EB6FA3B2BC261CF00BAB88E /* SimClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA2B2BC261CF00BAB88E /* SimClock.swift */; };
+		2EB6FA3C2BC261CF00BAB88E /* SimClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA2B2BC261CF00BAB88E /* SimClock.swift */; };
+		2EB6FA3D2BC261CF00BAB88E /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA2C2BC261CF00BAB88E /* Customers.swift */; };
+		2EB6FA3E2BC261CF00BAB88E /* Customers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6FA2C2BC261CF00BAB88E /* Customers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,19 +46,32 @@
 
 /* Begin PBXFileReference section */
 		2E5E8F452B92E50900EC99B9 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		2EB6F9E22BC2601000BAB88E /* HB Simulation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HB Simulation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EB6F9E42BC2601000BAB88E /* HB_SimulationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HB_SimulationApp.swift; sourceTree = "<group>"; };
+		2EB6F9E62BC2601000BAB88E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2EB6F9E82BC2601300BAB88E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2EB6F9EA2BC2601300BAB88E /* HB_Simulation.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HB_Simulation.entitlements; sourceTree = "<group>"; };
+		2EB6F9EC2BC2601300BAB88E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2EB6FA232BC261CF00BAB88E /* InitRoutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitRoutine.swift; sourceTree = "<group>"; };
+		2EB6FA242BC261CF00BAB88E /* SimEventMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimEventMain.swift; sourceTree = "<group>"; };
+		2EB6FA262BC261CF00BAB88E /* SimServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimServer.swift; sourceTree = "<group>"; };
+		2EB6FA272BC261CF00BAB88E /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		2EB6FA282BC261CF00BAB88E /* SystemState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemState.swift; sourceTree = "<group>"; };
+		2EB6FA292BC261CF00BAB88E /* StatCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCount.swift; sourceTree = "<group>"; };
+		2EB6FA2A2BC261CF00BAB88E /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		2EB6FA2B2BC261CF00BAB88E /* SimClock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimClock.swift; sourceTree = "<group>"; };
+		2EB6FA2C2BC261CF00BAB88E /* Customers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
 		2ECA73EC2B9227B200808184 /* Simulation-A1-AmirMahdiAbravesh */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Simulation-A1-AmirMahdiAbravesh"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2ECA73F62B9227CC00808184 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
-		2ECA73F72B9227CC00808184 /* InitRoutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitRoutine.swift; sourceTree = "<group>"; };
-		2ECA73F82B9227CC00808184 /* SimEventMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimEventMain.swift; sourceTree = "<group>"; };
-		2ECA73FA2B9227CC00808184 /* SimServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimServer.swift; sourceTree = "<group>"; };
-		2ECA73FB2B9227CC00808184 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
-		2ECA73FC2B9227CC00808184 /* SystemState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemState.swift; sourceTree = "<group>"; };
-		2ECA73FD2B9227CC00808184 /* StatCount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatCount.swift; sourceTree = "<group>"; };
-		2ECA73FE2B9227CC00808184 /* SimClock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimClock.swift; sourceTree = "<group>"; };
-		2ECA73FF2B9227CC00808184 /* Customers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2EB6F9DF2BC2601000BAB88E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2ECA73E92B9227B200808184 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,19 +82,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E1F2F9B2B95A1F90083BA4D /* SimFunction */ = {
+		2EB6F9E32BC2601000BAB88E /* HB Simulation */ = {
 			isa = PBXGroup;
 			children = (
-				2ECA73F72B9227CC00808184 /* InitRoutine.swift */,
-				2ECA73F82B9227CC00808184 /* SimEventMain.swift */,
+				2EB6F9E42BC2601000BAB88E /* HB_SimulationApp.swift */,
+				2EB6F9E62BC2601000BAB88E /* ContentView.swift */,
+				2EB6F9E82BC2601300BAB88E /* Assets.xcassets */,
+				2EB6F9EA2BC2601300BAB88E /* HB_Simulation.entitlements */,
+				2EB6F9EB2BC2601300BAB88E /* Preview Content */,
+			);
+			path = "HB Simulation";
+			sourceTree = "<group>";
+		};
+		2EB6F9EB2BC2601300BAB88E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2EB6F9EC2BC2601300BAB88E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2EB6FA222BC261CF00BAB88E /* SimFunction */ = {
+			isa = PBXGroup;
+			children = (
+				2EB6FA232BC261CF00BAB88E /* InitRoutine.swift */,
+				2EB6FA242BC261CF00BAB88E /* SimEventMain.swift */,
 			);
 			path = SimFunction;
+			sourceTree = "<group>";
+		};
+		2EB6FA252BC261CF00BAB88E /* SimObjects */ = {
+			isa = PBXGroup;
+			children = (
+				2EB6FA262BC261CF00BAB88E /* SimServer.swift */,
+				2EB6FA272BC261CF00BAB88E /* Customer.swift */,
+				2EB6FA282BC261CF00BAB88E /* SystemState.swift */,
+				2EB6FA292BC261CF00BAB88E /* StatCount.swift */,
+				2EB6FA2A2BC261CF00BAB88E /* Queue.swift */,
+				2EB6FA2B2BC261CF00BAB88E /* SimClock.swift */,
+				2EB6FA2C2BC261CF00BAB88E /* Customers.swift */,
+			);
+			path = SimObjects;
 			sourceTree = "<group>";
 		};
 		2ECA73E32B9227B200808184 = {
 			isa = PBXGroup;
 			children = (
 				2ECA73EE2B9227B200808184 /* Simulation-A1-AmirMahdiAbravesh */,
+				2EB6F9E32BC2601000BAB88E /* HB Simulation */,
 				2ECA73ED2B9227B200808184 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				2ECA73EC2B9227B200808184 /* Simulation-A1-AmirMahdiAbravesh */,
+				2EB6F9E22BC2601000BAB88E /* HB Simulation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,30 +146,33 @@
 		2ECA73EE2B9227B200808184 /* Simulation-A1-AmirMahdiAbravesh */ = {
 			isa = PBXGroup;
 			children = (
-				2ECA73F92B9227CC00808184 /* SimObjects */,
-				2E1F2F9B2B95A1F90083BA4D /* SimFunction */,
+				2EB6FA222BC261CF00BAB88E /* SimFunction */,
+				2EB6FA252BC261CF00BAB88E /* SimObjects */,
 				2E5E8F452B92E50900EC99B9 /* main.swift */,
 			);
 			path = "Simulation-A1-AmirMahdiAbravesh";
 			sourceTree = "<group>";
 		};
-		2ECA73F92B9227CC00808184 /* SimObjects */ = {
-			isa = PBXGroup;
-			children = (
-				2ECA73F62B9227CC00808184 /* Queue.swift */,
-				2ECA73FA2B9227CC00808184 /* SimServer.swift */,
-				2ECA73FB2B9227CC00808184 /* Customer.swift */,
-				2ECA73FC2B9227CC00808184 /* SystemState.swift */,
-				2ECA73FD2B9227CC00808184 /* StatCount.swift */,
-				2ECA73FE2B9227CC00808184 /* SimClock.swift */,
-				2ECA73FF2B9227CC00808184 /* Customers.swift */,
-			);
-			path = SimObjects;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2EB6F9E12BC2601000BAB88E /* HB Simulation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EB6F9F02BC2601300BAB88E /* Build configuration list for PBXNativeTarget "HB Simulation" */;
+			buildPhases = (
+				2EB6F9DE2BC2601000BAB88E /* Sources */,
+				2EB6F9DF2BC2601000BAB88E /* Frameworks */,
+				2EB6F9E02BC2601000BAB88E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HB Simulation";
+			productName = "HB Simulation";
+			productReference = 2EB6F9E22BC2601000BAB88E /* HB Simulation.app */;
+			productType = "com.apple.product-type.application";
+		};
 		2ECA73EB2B9227B200808184 /* Simulation-A1-AmirMahdiAbravesh */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2ECA73F32B9227B200808184 /* Build configuration list for PBXNativeTarget "Simulation-A1-AmirMahdiAbravesh" */;
@@ -137,6 +202,9 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					2EB6F9E12BC2601000BAB88E = {
+						CreatedOnToolsVersion = 15.2;
+					};
 					2ECA73EB2B9227B200808184 = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -158,31 +226,138 @@
 			projectRoot = "";
 			targets = (
 				2ECA73EB2B9227B200808184 /* Simulation-A1-AmirMahdiAbravesh */,
+				2EB6F9E12BC2601000BAB88E /* HB Simulation */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		2EB6F9E02BC2601000BAB88E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EB6F9ED2BC2601300BAB88E /* Preview Assets.xcassets in Resources */,
+				2EB6F9E92BC2601300BAB88E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		2EB6F9DE2BC2601000BAB88E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EB6FA322BC261CF00BAB88E /* SimServer.swift in Sources */,
+				2EB6F9E72BC2601000BAB88E /* ContentView.swift in Sources */,
+				2EB6FA362BC261CF00BAB88E /* SystemState.swift in Sources */,
+				2EB6FA302BC261CF00BAB88E /* SimEventMain.swift in Sources */,
+				2EB6FA3C2BC261CF00BAB88E /* SimClock.swift in Sources */,
+				2EB6FA342BC261CF00BAB88E /* Customer.swift in Sources */,
+				2EB6F9E52BC2601000BAB88E /* HB_SimulationApp.swift in Sources */,
+				2EB6FA3E2BC261CF00BAB88E /* Customers.swift in Sources */,
+				2EB6FA2E2BC261CF00BAB88E /* InitRoutine.swift in Sources */,
+				2EB6FA3A2BC261CF00BAB88E /* Queue.swift in Sources */,
+				2EB6FA382BC261CF00BAB88E /* StatCount.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2ECA73E82B9227B200808184 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ECA74042B9227CC00808184 /* SimServer.swift in Sources */,
-				2ECA74062B9227CC00808184 /* SystemState.swift in Sources */,
-				2ECA74092B9227CC00808184 /* Customers.swift in Sources */,
-				2ECA74032B9227CC00808184 /* SimEventMain.swift in Sources */,
-				2ECA74052B9227CC00808184 /* Customer.swift in Sources */,
-				2ECA74012B9227CC00808184 /* Queue.swift in Sources */,
+				2EB6FA352BC261CF00BAB88E /* SystemState.swift in Sources */,
+				2EB6FA2D2BC261CF00BAB88E /* InitRoutine.swift in Sources */,
+				2EB6FA332BC261CF00BAB88E /* Customer.swift in Sources */,
+				2EB6FA3D2BC261CF00BAB88E /* Customers.swift in Sources */,
+				2EB6FA392BC261CF00BAB88E /* Queue.swift in Sources */,
 				2E5E8F462B92E50900EC99B9 /* main.swift in Sources */,
-				2ECA74022B9227CC00808184 /* InitRoutine.swift in Sources */,
-				2ECA74082B9227CC00808184 /* SimClock.swift in Sources */,
-				2ECA74072B9227CC00808184 /* StatCount.swift in Sources */,
+				2EB6FA312BC261CF00BAB88E /* SimServer.swift in Sources */,
+				2EB6FA2F2BC261CF00BAB88E /* SimEventMain.swift in Sources */,
+				2EB6FA3B2BC261CF00BAB88E /* SimClock.swift in Sources */,
+				2EB6FA372BC261CF00BAB88E /* StatCount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		2EB6F9EE2BC2601300BAB88E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "HB Simulation/HB_Simulation.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HB Simulation/Preview Content\"";
+				DEVELOPMENT_TEAM = Y4JD236954;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amirabravesh.HB-Simulation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2EB6F9EF2BC2601300BAB88E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "HB Simulation/HB_Simulation.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HB Simulation/Preview Content\"";
+				DEVELOPMENT_TEAM = Y4JD236954;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amirabravesh.HB-Simulation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		2ECA73F12B9227B200808184 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -235,6 +410,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -242,6 +418,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OBJC_INTEROP_MODE = objc;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -292,12 +469,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_INTEROP_MODE = objc;
 			};
 			name = Release;
 		};
@@ -308,6 +487,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4JD236954;
 				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amirabravesh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -321,6 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y4JD236954;
 				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amirabravesh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -330,6 +511,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2EB6F9F02BC2601300BAB88E /* Build configuration list for PBXNativeTarget "HB Simulation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EB6F9EE2BC2601300BAB88E /* Debug */,
+				2EB6F9EF2BC2601300BAB88E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2ECA73E72B9227B200808184 /* Build configuration list for PBXProject "Simulation-A1-AmirMahdiAbravesh" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -20,7 +20,7 @@ class StatCount {
     }
 
     func printPreprocessing(input: [Int: Any]) {
-        var pre = "\(input)"
+        let pre = "\(input)"
         var key: [String] = []
         var value: [String] = []
         var buffer = ""
